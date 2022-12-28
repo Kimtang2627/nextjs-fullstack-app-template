@@ -1,3 +1,9 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "globals": {
+    "React": "readonly" // React is a global variable to avoid having to add import react to every component that you write
+  },
+  "rules": {
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }] // turn the rule off by setting it to 0 , set it warning by setting that to 1
+  }
 }
