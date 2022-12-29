@@ -1,9 +1,23 @@
 {
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "extends": [
+    "plugin:storybook/recommended",
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended"
+  ],
   "globals": {
-    "React": "readonly" // React is a global variable to avoid having to add import react to every component that you write
+    "React": "readonly"
   },
+  "overrides": [
+    {
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+      "rules": {
+        // example of overriding a rule
+        "storybook/hierarchy-separator": "error"
+      }
+    }
+  ],
   "rules": {
-    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }] // turn the rule off by setting it to 0 , set it warning by setting that to 1
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
   }
 }
